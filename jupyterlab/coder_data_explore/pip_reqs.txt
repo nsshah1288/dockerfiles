@@ -1,0 +1,6 @@
+git+ssh://git@gitlab.com/jupiterintel/jupiter_style.git
+git+ssh://git@gitlab.com/jupiterintel/jupiter_log.git
+git+ssh://git@gitlab.com/jupiterintel/jupiter_aws.git
+numpy<1.21.0
+googlemaps
+ipdb

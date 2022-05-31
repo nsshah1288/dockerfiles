@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo 'create dev URL for JupyterLab data-explore image'
+coder urls create $CODER_WORKSPACE_NAME 8888 --name data-explore
+
+echo 'start supervisord and JupyterLab'
+sudo /usr/bin/supervisord
+
+echo 'copy supernotebook folders and files into the home directory'
+sudo rsync -a -v --ignore-existing /home/example-notebooks/ /home/coder/example-notebooks
+
+#echo 'backup the Coder injected Jupyter icon'
+#ICON_DIR=/var/tmp/coder/code-server/plugins/jupyter/out/
+#sudo mv $ICON_DIR/jupyter.svg $ICON_DIR/jupyter-notebook.svg
+#
+#echo 'move the image-added JupyterLab icon and change name to what Coder expects for Jupyter'
+#sudo mv /usr/local/bin/jupyterlab.svg $ICON_DIR/jupyter.svg
+
+echo 'see permissions'
+ls -l
